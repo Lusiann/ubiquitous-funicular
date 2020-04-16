@@ -1,0 +1,32 @@
+<html lang="en">
+<head>    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LibriOdinProject</title>
+    <link rel="stylesheet" href="library.css">
+</head>
+<body>
+    <h1>Library project for Odin</h1>
+    <div id="inputDiv">        
+        <form id="submit">
+            <label for="title">Title</label>
+            <input class="input" type="text" name="title" required='true' placeholder="Insert title here">
+
+            <label for="author">Author</label>
+            <input class="input" type="text" name="author" required='true' placeholder="Insert author name here">
+
+            <label for="pages">Pages</label>
+            <input class="input" type="number" name="pages">
+            
+
+            <label for="readItYet">have you read it yet?</label>
+            <input class="input" type="checkbox" name="readItYet">                   
+            <button type="submit">Submit</button>
+        </form>
+
+    </div>
+    <div id="render">       
+    </div>
+    <script src="library.js"></script> 
+</body>
+</html>

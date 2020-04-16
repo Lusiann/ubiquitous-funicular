@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #330F0A;
+    color: white;
+
+}
+
+h1 {
+    color: #EFDD8D ;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+
+#inputDiv {
+    display: flex;
+    justify-content: center;
+    min-width: 910px;
+    
+}
+
+
+.divEach {
+color: black;
+ border: black 1px solid;
+ display: flex;
+ justify-content: flex-start;
+ max-height: 200px;
+ min-width: 770px;
+ min-height: 200px;
+ overflow: hidden;
+ background-color: #EFDD8D
+ 
+ 
+ 
+}
+
+.divEach img {
+    height: 200px;
+    width: 125px;
+}
+
+
+
+.descrizione {
+    grid-column: 1/6;
+    text-overflow: ellipsis;
+    overflow: auto;
+    text-transform: initial;
+}
+
+.informazioni {
+    text-transform: capitalize;
+    background-color: #EFDD8D;
+    width: 100vw;
+    padding: 5px;
+    display: grid;    
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 20px 20px auto;
+}
+
+.check {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+h1 {
+    text-align: center;
+}
+
+.divEach button {
+    cursor: pointer;
+    border: 0;
+    background-color: rgb(224, 97, 97) ;
+}
