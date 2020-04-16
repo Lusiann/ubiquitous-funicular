@@ -6,8 +6,8 @@ const inputs = inputDiv.querySelectorAll('.input')
 const renderDiv = document.querySelector('#render')
 
 let myLibrary = JSON.parse(localStorage.getItem('libri')) || [{"title":"html for dummies","author":"jeff noble","pages":416,"readItYet":false,
- "pictureLink":"http://books.google.com/books/content?id=EGp9DgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
- "link":"http://books.google.it/books?id=EGp9DgAAQBAJ&printsec=frontcover&dq=intitle:html+for+dummies+inauthor:jeff+noble&hl=&cd=1&source=gbs_api",
+ "pictureLink":"https://books.google.com/books/content?id=EGp9DgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+ "link":"https://books.google.it/books?id=EGp9DgAAQBAJ&printsec=frontcover&dq=intitle:html+for+dummies+inauthor:jeff+noble&hl=&cd=1&source=gbs_api",
  "descrizione":"What the book covers: the key features of HTML including getting to know (X)HTML and CSS, creating and viewing a Web page, planning your site, creating (X)HTML document structure, working with text and lists, creating and customizing links, finding and using images, using cascading style sheets (CSS), getting creative with colors and fonts, integrating scripts with (X)HTML, understanding deprecated HTML markup tags, working with content management systems (WordPress, Drupal, and Joomla), designing for mobile devices (iPhone, BlackBerry, and Android), getting started with HTML5 and CSS3, and much more. Updated coverage: the seventh edition will have approximately 50% new content and will be thoroughly revised to cover the latest concepts, tools, and trends in the industry. Series features: Information presented in the straightforward but fun language that has defined the Dummies series for more than nineteen years.",
  "rating":"N/A"}];
 
@@ -42,13 +42,17 @@ async function addBookToLibrary(event) {
     await fetch(`https://www.googleapis.com/books/v1/volumes?q=intitle:${title.replace(/ /g,'+')}+inauthor:${author.replace(/ /g,'+')}&maxResults=1&orderBy=relevance`)
      .then(res => res.json())
      .then(data => {
+         
+         console.log(data)
          if(!data.totalItems) return;
          
          descrizione = data.items[0].volumeInfo.description         
          if (pages === '') pages = data.items[0].volumeInfo.pageCount;         
          rating = data.items[0].volumeInfo.averageRating        
-         pictureLink = data.items[0].volumeInfo.imageLinks.thumbnail         
+         pictureLink = data.items[0].volumeInfo.imageLinks.thumbnail
+         pictureLink = pictureLink.replace('http','https')         
          link = data.items[0].volumeInfo.previewLink
+         link = link.replace('http','https')
          
          })
 
